@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>MGRS CSV Aggregator</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -25,13 +16,10 @@
     <h1>MGRS CSV Aggregator</h1>
 
     <div class="upload-box">
-
       <input
         type="file"
         id="fileInput"
-        accept=".csv"
       >
-
     </div>
 
     <button id="processBtn">
@@ -49,19 +37,16 @@
 
   </div>
 
-
   <footer>
-    MGRS CSV Aggregator v.01
+    MGRS CSV Aggregator v.02
   </footer>
 
-
-  <!-- PapaParse -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- mgrs.js -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/mgrs/dist/mgrs.min.js"></script>
 
-  <!-- app -->
   <script src="app.js"></script>
 
 </body>

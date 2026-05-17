@@ -1,1 +1,1 @@
-# -CoordinatesAggregator
+# CoordinatesAggregator
