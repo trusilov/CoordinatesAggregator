@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>MGRS CSV Aggregator</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/icon.png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="app-header">
+
+    <div class="header-left">
+
+      <img
+        src="assets/icon.png"
+        class="header-icon"
+        alt="icon"
+      >
+
+      <div class="header-title-block">
+
+        <div class="header-title">
+          MGRS CSV Aggregator
+        </div>
+
+        <div class="header-version">
+          v0.5
+        </div>
+
+        <a
+          href="https://github.com/trusilov/CoordinatesAggregator"
+          target="_blank"
+          class="github-link"
+        >
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="header-right">
+
+      <button
+        id="themeToggleBtn"
+        class="header-btn"
+      >
+        🌙 Dark
+      </button>
+
+      <div
+        class="status-indicator"
+        id="statusIndicator"
+      >
+        ● READY
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <div class="app-layout">
+
+    <!-- LEFT PANEL -->
+
+    <div class="left-panel">
+
+      <div class="map-card">
+
+        <div class="map-header">
+
+          <h3>
+            Попередній перегляд мапи
+          </h3>
+
+          <div class="map-controls">
+
+            <select id="previewModeSelect">
+
+              <option value="points" selected>
+                Points
+              </option>
+
+              <option value="heatmap">
+                Heatmap
+              </option>
+
+            </select>
+
+            <select id="basemapSelect">
+
+              <option value="satellite" selected>
+                Satellite
+              </option>
+
+              <option value="dark">
+                Dark
+              </option>
+
+              <option value="osm">
+                OpenStreetMap
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+        <div id="map"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+
+    <div class="right-panel">
+
+      <div class="top-card">
+
+        <h1 class="title">
+
+          <img
+            src="assets/icon.png"
+            class="title-icon"
+            alt="icon"
+          >
+
+          MGRS CSV Aggregator
+
+        </h1>
+
+
+        <div class="upload-box">
+
+          <input
+            type="file"
+            id="fileInput"
+          >
+
+        </div>
+
+
+        <div class="action-buttons">
+
+          <button id="processBtn">
+            Обробити
+          </button>
+
+          <button id="clearBtn">
+            Очистити
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div id="status"></div>
+
+
+      <a
+        id="downloadLink"
+        style="display:none;"
+      >
+        Завантажити результат
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <script src="libs/papaparse.min.js"></script>
+  <script src="libs/xlsx.full.min.js"></script>
+  <script src="libs/mgrs.min.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

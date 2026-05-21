@@ -1,0 +1,693 @@
+:root {
+
+  --bg-primary: #111827;
+
+  --bg-secondary: #1f2937;
+
+  --bg-tertiary: #0f172a;
+
+  --text-primary: #ffffff;
+
+  --text-secondary: #9ca3af;
+
+  --border-color: #374151;
+
+  --accent: #2563eb;
+
+  --success: #22c55e;
+
+  --warning: #f59e0b;
+
+  --error: #ef4444;
+}
+
+
+/*
+====================================
+LIGHT THEME
+====================================
+*/
+
+body.light-theme {
+
+  --bg-primary: #f3f4f6;
+
+  --bg-secondary: #ffffff;
+
+  --bg-tertiary: #e5e7eb;
+
+  --text-primary: #111827;
+
+  --text-secondary: #4b5563;
+
+  --border-color: #d1d5db;
+
+  --accent: #2563eb;
+
+  --success: #16a34a;
+
+  --warning: #d97706;
+
+  --error: #dc2626;
+}
+
+
+/*
+====================================
+BODY
+====================================
+*/
+
+body {
+  margin: 0;
+
+  padding: 80px 0 0 0;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  font-family: Arial, sans-serif;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/*
+====================================
+HEADER
+====================================
+*/
+
+.app-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 0 20px;
+
+  background: var(--bg-secondary);
+
+  border-bottom: 1px solid var(--border-color);
+
+  box-sizing: border-box;
+
+  z-index: 1000;
+}
+
+
+.header-left,
+.header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+.header-icon {
+  width: 42px;
+
+  height: 42px;
+
+  object-fit: contain;
+}
+
+
+.header-title-block {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.header-title {
+  font-size: 18px;
+
+  font-weight: bold;
+}
+
+
+.header-version {
+  font-size: 12px;
+
+  color: var(--text-secondary);
+}
+
+
+.github-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-top: 4px;
+
+  font-size: 12px;
+
+  color: #60a5fa;
+
+  text-decoration: none;
+
+  transition: opacity 0.2s ease;
+}
+
+
+.github-link:hover {
+  opacity: 0.8;
+}
+
+
+.header-btn {
+  background: var(--accent);
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+
+.header-btn:hover {
+  opacity: 0.9;
+}
+
+
+.status-indicator {
+  font-size: 14px;
+
+  color: var(--success);
+
+  font-weight: bold;
+}
+
+
+/*
+====================================
+LAYOUT
+====================================
+*/
+
+.app-layout {
+  display: grid;
+
+  grid-template-columns: 35% 65%;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  width: 100%;
+
+  max-width: 1800px;
+
+  margin: 0 auto;
+
+  align-items: start;
+
+  box-sizing: border-box;
+}
+
+
+/*
+====================================
+PANELS
+====================================
+*/
+
+.left-panel {
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+.right-panel {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 380px;
+}
+
+
+/*
+====================================
+CARDS
+====================================
+*/
+
+.top-card,
+.map-card {
+  height: 480px;
+
+  box-sizing: border-box;
+}
+
+
+.top-card {
+  background: var(--bg-secondary);
+
+  border-radius: 16px;
+
+  padding: 20px;
+}
+
+
+.map-card {
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--bg-secondary);
+
+  border-radius: 16px;
+
+  padding: 16px;
+}
+
+
+/*
+====================================
+TITLE
+====================================
+*/
+
+.title {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: 0 0 24px 0;
+
+  text-align: center;
+}
+
+
+.title-icon {
+  width: 96px;
+
+  height: 96px;
+
+  object-fit: contain;
+}
+
+
+/*
+====================================
+UPLOAD
+====================================
+*/
+
+.upload-box {
+  background: var(--bg-primary);
+
+  border-radius: 12px;
+
+  padding: 32px;
+
+  text-align: center;
+}
+
+
+input[type="file"] {
+  color: var(--text-primary);
+}
+
+
+/*
+====================================
+ACTION BUTTONS
+====================================
+*/
+
+.action-buttons {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+
+.action-buttons button {
+  width: 100%;
+
+  margin-top: 0;
+}
+
+
+/*
+====================================
+BUTTONS
+====================================
+*/
+
+button {
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--accent);
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+
+button:hover {
+  opacity: 0.9;
+}
+
+
+/*
+====================================
+STATUS
+====================================
+*/
+
+#status {
+  margin-top: 16px;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+.status-card {
+  background: var(--bg-secondary);
+
+  border-radius: 12px;
+
+  padding: 16px;
+
+  margin-top: 16px;
+}
+
+
+.status-card h3 {
+  margin: 0 0 12px 0;
+}
+
+
+.status-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(145px, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.status-item {
+  background: var(--bg-primary);
+
+  border-radius: 10px;
+
+  padding: 12px;
+}
+
+
+.status-label {
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+
+.status-value {
+  font-size: 22px;
+
+  font-weight: bold;
+
+  margin-top: 4px;
+}
+
+
+/*
+====================================
+ERRORS
+====================================
+*/
+
+.error-list {
+  margin-top: 10px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+}
+
+
+.error-row {
+  background: var(--bg-primary);
+
+  border-left: 4px solid var(--error);
+
+  border-radius: 8px;
+
+  padding: 10px;
+
+  margin-bottom: 8px;
+}
+
+
+.error-coord {
+  font-weight: bold;
+
+  word-break: break-all;
+}
+
+
+.error-reason {
+  color: #fca5a5;
+
+  margin-top: 4px;
+}
+
+
+/*
+====================================
+COLORS
+====================================
+*/
+
+.success {
+  color: var(--success);
+}
+
+
+.warning {
+  color: var(--warning);
+}
+
+
+.error {
+  color: var(--error);
+}
+
+
+/*
+====================================
+MAP
+====================================
+*/
+
+.map-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+
+.map-header h3 {
+  margin: 0;
+}
+
+
+.map-controls {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+#map {
+  flex: 1;
+
+  width: 100%;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/*
+====================================
+SELECTS
+====================================
+*/
+
+#basemapSelect,
+#previewModeSelect {
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 8px;
+
+  padding: 8px 10px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+#basemapSelect:hover,
+#previewModeSelect:hover {
+  border-color: #60a5fa;
+}
+
+
+/*
+====================================
+DOWNLOAD
+====================================
+*/
+
+#downloadLink {
+  display: block;
+
+  margin-top: 16px;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  background: var(--success);
+
+  color: white;
+
+  text-decoration: none;
+}
+
+
+/*
+====================================
+MOBILE
+====================================
+*/
+
+@media (max-width: 1200px) {
+
+  body {
+    padding-top: 140px;
+  }
+
+  .app-header {
+    height: auto;
+
+    padding: 14px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .header-left,
+  .header-right {
+    flex-wrap: wrap;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .top-card,
+  .map-card {
+    height: auto;
+  }
+
+  .map-card {
+    height: 360px;
+  }
+
+  .right-panel {
+    min-width: auto;
+  }
+
+  .map-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .map-controls {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  #basemapSelect,
+  #previewModeSelect {
+    width: 100%;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+}
