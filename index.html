@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -9,14 +8,9 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    MGRS CSV Aggregator
-  </title>
+  <title>MGRS CSV Aggregator</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
   <link
     rel="icon"
@@ -24,80 +18,191 @@
     href="assets/icon.png"
   >
 
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
 </head>
 
 <body>
 
-  <div class="container">
+  <!-- HEADER -->
 
-    <h1 class="title">
+  <header class="app-header">
+
+    <div class="header-left">
 
       <img
         src="assets/icon.png"
-        class="title-icon"
+        class="header-icon"
         alt="icon"
       >
 
-      MGRS CSV Aggregator
+      <div class="header-title-block">
 
-    </h1>
+        <div class="header-title">
+          MGRS CSV Aggregator
+        </div>
 
+        <div class="header-version">
+          v0.5
+        </div>
 
-    <div class="upload-box">
+        <a
+          href="https://github.com/trusilov/CoordinatesAggregator"
+          target="_blank"
+          class="github-link"
+        >
+          GitHub
+        </a>
 
-      <input
-        type="file"
-        id="fileInput"
+      </div>
+
+    </div>
+
+    <div class="header-right">
+
+      <button
+        id="themeToggleBtn"
+        class="header-btn"
       >
+        🌙 Dark
+      </button>
+
+      <div
+        class="status-indicator"
+        id="statusIndicator"
+      >
+        ● READY
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <div class="app-layout">
+
+    <!-- LEFT PANEL -->
+
+    <div class="left-panel">
+
+      <div class="map-card">
+
+        <div class="map-header">
+
+          <h3>
+            Попередній перегляд мапи
+          </h3>
+
+          <div class="map-controls">
+
+            <select id="previewModeSelect">
+
+              <option value="points" selected>
+                Points
+              </option>
+
+              <option value="heatmap">
+                Heatmap
+              </option>
+
+            </select>
+
+            <select id="basemapSelect">
+
+              <option value="satellite" selected>
+                Satellite
+              </option>
+
+              <option value="dark">
+                Dark
+              </option>
+
+              <option value="osm">
+                OpenStreetMap
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+        <div id="map"></div>
+
+      </div>
 
     </div>
 
 
-    <button id="processBtn">
+    <!-- RIGHT PANEL -->
 
-      Обробити
+    <div class="right-panel">
 
-    </button>
+      <div class="top-card">
+
+        <h1 class="title">
+
+          <img
+            src="assets/icon.png"
+            class="title-icon"
+            alt="icon"
+          >
+
+          MGRS CSV Aggregator
+
+        </h1>
 
 
-    <div id="status"></div>
+        <div class="upload-box">
+
+          <input
+            type="file"
+            id="fileInput"
+          >
+
+        </div>
 
 
-    <a
-      id="downloadLink"
-      style="display:none;"
-    >
+        <div class="action-buttons">
 
-      Завантажити результат
+          <button id="processBtn">
+            Обробити
+          </button>
 
-    </a>
+          <button id="clearBtn">
+            Очистити
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div id="status"></div>
+
+
+      <a
+        id="downloadLink"
+        style="display:none;"
+      >
+        Завантажити результат
+      </a>
+
+    </div>
 
   </div>
 
 
-  <footer>
+  <script src="libs/papaparse.min.js"></script>
+  <script src="libs/xlsx.full.min.js"></script>
+  <script src="libs/mgrs.min.js"></script>
 
-    MGRS CSV Aggregator v.03
-
-  </footer>
-
-
-  <!-- PapaParse -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-
-  <!-- XLSX -->
-
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
-
-
-  <!-- MGRS -->
-
-  <script src="https://cdn.jsdelivr.net/npm/mgrs/dist/mgrs.min.js"></script>
-
-
-  <!-- APP -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
   <script src="app.js"></script>
 
