@@ -1,7 +1,11 @@
 const fileInput = document.getElementById('fileInput');
+
 const processBtn = document.getElementById('processBtn');
+
 const status = document.getElementById('status');
+
 const downloadLink = document.getElementById('downloadLink');
+
 
 let currentFile = null;
 

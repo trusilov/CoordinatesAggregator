@@ -12,9 +12,19 @@ body {
   padding: 20px;
 }
 
-h1 {
-  text-align: center;
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
   margin-bottom: 30px;
+}
+
+.title-icon {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
 }
 
 .upload-box {
@@ -32,11 +42,16 @@ button {
   width: 100%;
   margin-top: 20px;
   padding: 15px;
+
   border: none;
   border-radius: 10px;
+
   background: #2563eb;
+
   color: white;
+
   font-size: 16px;
+
   cursor: pointer;
 }
 
@@ -64,7 +79,13 @@ button:hover {
 
 .status-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(160px, 1fr)
+    );
+
   gap: 10px;
 }
 
@@ -93,9 +114,13 @@ button:hover {
 
 .error-row {
   background: #111827;
+
   border-left: 4px solid #ef4444;
+
   border-radius: 8px;
+
   padding: 10px;
+
   margin-bottom: 8px;
 }
 
@@ -123,19 +148,41 @@ button:hover {
 
 #downloadLink {
   display: block;
+
   margin-top: 20px;
+
   padding: 15px;
+
   border-radius: 10px;
+
   text-align: center;
+
   background: #16a34a;
+
   color: white;
+
   text-decoration: none;
 }
 
 footer {
-  margin-top: 40px;
-  padding: 20px;
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 14px 20px;
+
   text-align: center;
+
+  background: #111827;
+
+  border-top: 1px solid #1f2937;
+
   color: #9ca3af;
+
   font-size: 14px;
+
+  z-index: 100;
 }

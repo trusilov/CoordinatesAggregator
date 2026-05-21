@@ -1,51 +1,103 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MGRS CSV Aggregator</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <title>
+    MGRS CSV Aggregator
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/icon.png"
+  >
+
 </head>
 
 <body>
 
   <div class="container">
 
-    <h1>MGRS CSV Aggregator</h1>
+    <h1 class="title">
+
+      <img
+        src="assets/icon.png"
+        class="title-icon"
+        alt="icon"
+      >
+
+      MGRS CSV Aggregator
+
+    </h1>
+
 
     <div class="upload-box">
+
       <input
         type="file"
         id="fileInput"
       >
+
     </div>
 
+
     <button id="processBtn">
+
       Обробити
+
     </button>
 
+
     <div id="status"></div>
+
 
     <a
       id="downloadLink"
       style="display:none;"
     >
+
       Завантажити результат
+
     </a>
 
   </div>
 
+
   <footer>
-    MGRS CSV Aggregator v.02
+
+    MGRS CSV Aggregator v.03
+
   </footer>
+
+
+  <!-- PapaParse -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
+
+  <!-- XLSX -->
+
   <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 
+
+  <!-- MGRS -->
+
   <script src="https://cdn.jsdelivr.net/npm/mgrs/dist/mgrs.min.js"></script>
+
+
+  <!-- APP -->
 
   <script src="app.js"></script>
 
