@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,7 +11,10 @@
 
   <title>MGRS CSV Aggregator</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
   <link
     rel="icon"
@@ -22,11 +26,10 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   >
+
 </head>
 
 <body>
-
-  <!-- HEADER -->
 
   <header class="app-header">
 
@@ -45,7 +48,7 @@
         </div>
 
         <div class="header-version">
-          v0.5
+          v0.6
         </div>
 
         <a
@@ -61,6 +64,13 @@
     </div>
 
     <div class="header-right">
+
+      <button
+        id="langToggleBtn"
+        class="header-btn"
+      >
+        🇺🇦 UA
+      </button>
 
       <button
         id="themeToggleBtn"
@@ -81,11 +91,7 @@
   </header>
 
 
-  <!-- MAIN -->
-
   <div class="app-layout">
-
-    <!-- LEFT PANEL -->
 
     <div class="left-panel">
 
@@ -93,7 +99,7 @@
 
         <div class="map-header">
 
-          <h3>
+          <h3 data-i18n="mapPreview">
             Попередній перегляд мапи
           </h3>
 
@@ -101,24 +107,38 @@
 
             <select id="previewModeSelect">
 
-              <option value="points" selected>
-                Points
+              <option
+                value="points"
+                selected
+                data-i18n="points"
+              >
+                Крапки
               </option>
 
-              <option value="heatmap">
-                Heatmap
+              <option
+                value="heatmap"
+                data-i18n="heatmap"
+              >
+                Теплова мапа
               </option>
 
             </select>
 
             <select id="basemapSelect">
 
-              <option value="satellite" selected>
-                Satellite
+              <option
+                value="satellite"
+                selected
+                data-i18n="satellite"
+              >
+                Сателіт
               </option>
 
-              <option value="dark">
-                Dark
+              <option
+                value="dark"
+                data-i18n="darkMap"
+              >
+                Темна
               </option>
 
               <option value="osm">
@@ -138,8 +158,6 @@
     </div>
 
 
-    <!-- RIGHT PANEL -->
-
     <div class="right-panel">
 
       <div class="top-card">
@@ -156,7 +174,6 @@
 
         </h1>
 
-
         <div class="upload-box">
 
           <input
@@ -166,31 +183,35 @@
 
         </div>
 
-
         <div class="action-buttons">
 
-          <button id="processBtn">
+          <button
+            id="processBtn"
+            data-i18n="process"
+          >
             Обробити
           </button>
 
-          <button id="clearBtn">
+          <button
+            id="clearBtn"
+            data-i18n="clear"
+          >
             Очистити
           </button>
 
         </div>
 
+        <a
+          id="downloadLink"
+          style="display:none;"
+          data-i18n="downloadResult"
+        >
+          Завантажити результат
+        </a>
+
       </div>
 
-
       <div id="status"></div>
-
-
-      <a
-        id="downloadLink"
-        style="display:none;"
-      >
-        Завантажити результат
-      </a>
 
     </div>
 
@@ -200,8 +221,10 @@
   <script src="libs/papaparse.min.js"></script>
   <script src="libs/xlsx.full.min.js"></script>
   <script src="libs/mgrs.min.js"></script>
+  <script src="libs/exceljs.min.js"></script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
   <script src="app.js"></script>
