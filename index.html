@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -11,10 +10,7 @@
 
   <title>MGRS CSV Aggregator</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
   <link
     rel="icon"
@@ -26,7 +22,6 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   >
-
 </head>
 
 <body>
@@ -76,7 +71,7 @@
         id="themeToggleBtn"
         class="header-btn"
       >
-        🌙 Dark
+        ☀ Light
       </button>
 
       <div
@@ -179,6 +174,7 @@
           <input
             type="file"
             id="fileInput"
+            accept=".csv,.xlsx,.xls"
           >
 
         </div>
@@ -224,9 +220,15 @@
   <script src="libs/exceljs.min.js"></script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/file.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/map.js"></script>
   <script src="app.js"></script>
 
 </body>
