@@ -253,8 +253,5 @@ const translations = {
 };
 
 function t(key) {
-  return (
-    translations[state.currentLang][key] ||
-    key
-  );
+  return translations[state.currentLang][key] || key;
 }

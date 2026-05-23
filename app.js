@@ -1,13 +1,33 @@
 initApp();
 
 function initApp() {
+  applySavedSelectValues();
   applyTheme();
+  updateLanguageButton();
   applyTranslations();
   setReadyStatus();
   bindEvents();
 }
 
+function applySavedSelectValues() {
+
+  el.basemapSelect.value =
+    loadBasemap();
+
+  el.previewModeSelect.value =
+    loadPreviewMode();
+}
+
+function updateLanguageButton() {
+
+  el.langToggleBtn.textContent =
+    state.currentLang === 'uk'
+      ? '🇺🇦 UA'
+      : '🌍 EN';
+}
+
 function bindEvents() {
+
   el.helpBtn.addEventListener(
     'click',
     openHelpModal
@@ -21,7 +41,10 @@ function bindEvents() {
   el.helpModal.addEventListener(
     'click',
     (event) => {
-      if (event.target === el.helpModal) {
+
+      if (
+        event.target === el.helpModal
+      ) {
         closeHelpModal();
       }
     }
@@ -30,7 +53,10 @@ function bindEvents() {
   document.addEventListener(
     'keydown',
     (event) => {
-      if (event.key === 'Escape') {
+
+      if (
+        event.key === 'Escape'
+      ) {
         closeHelpModal();
       }
     }
@@ -64,63 +90,92 @@ function bindEvents() {
   el.basemapSelect.addEventListener(
     'change',
     () => {
-      setBasemap(el.basemapSelect.value);
+
+      saveBasemap(
+        el.basemapSelect.value
+      );
+
+      setBasemap(
+        el.basemapSelect.value
+      );
     }
   );
 
   el.previewModeSelect.addEventListener(
     'change',
     () => {
-      if (state.latestConvertedRows.length > 0) {
-        renderPreview(state.latestConvertedRows);
+
+      savePreviewMode(
+        el.previewModeSelect.value
+      );
+
+      if (
+        state.latestConvertedRows.length > 0
+      ) {
+
+        renderPreview(
+          state.latestConvertedRows
+        );
       }
     }
   );
 }
 
 function toggleLanguage() {
+
   state.currentLang =
     state.currentLang === 'uk'
       ? 'en'
       : 'uk';
 
-  el.langToggleBtn.textContent =
-    state.currentLang === 'uk'
-      ? '🇺🇦 UA'
-      : '🌍 EN';
+  saveLanguage(
+    state.currentLang
+  );
+
+  updateLanguageButton();
 
   applyTranslations();
 }
 
 function resetApp() {
+
   el.fileInput.value = '';
 
   state.currentFile = null;
+
   state.latestConvertedRows = [];
+
   state.downloadType = null;
 
   clearPreviewLayers();
 
   el.status.innerHTML = '';
-  el.downloadLink.style.display = 'none';
+
+  el.downloadLink.style.display =
+    'none';
 
   setReadyStatus();
 }
 
 function handleFileSelect(event) {
-  const file = event.target.files[0];
+
+  const file =
+    event.target.files[0];
 
   if (!file) {
     return;
   }
 
   state.currentFile = file;
+
   state.latestConvertedRows = [];
+
   state.downloadType = null;
 
   clearPreviewLayers();
 
-  el.downloadLink.style.display = 'none';
+  el.downloadLink.style.display =
+    'none';
 
   el.status.innerHTML = `
     <div class="status-card">
@@ -133,7 +188,9 @@ function handleFileSelect(event) {
 }
 
 async function handleProcessClick() {
+
   if (!state.currentFile) {
+
     el.status.innerHTML = `
       <div class="status-card">
         <h3 class="error">${t('error')}</h3>
@@ -142,14 +199,18 @@ async function handleProcessClick() {
     `;
 
     setErrorStatus();
+
     return;
   }
 
   try {
+
     setProcessingStatus();
 
     state.downloadType = null;
-    el.downloadLink.style.display = 'none';
+
+    el.downloadLink.style.display =
+      'none';
 
     el.status.innerHTML = `
       <div class="status-card">
@@ -159,15 +220,20 @@ async function handleProcessClick() {
     `;
 
     const tableRows =
-      await readInputFile(state.currentFile);
+      await readInputFile(
+        state.currentFile
+      );
 
     const validation =
-      validateAndNormalizeRows(tableRows);
+      validateAndNormalizeRows(
+        tableRows
+      );
 
     if (
       validation.invalidValues.length > 0 ||
       validation.invalidMgrs.length > 0
     ) {
+
       await handleValidationErrors(
         tableRows,
         validation
@@ -182,6 +248,7 @@ async function handleProcessClick() {
     );
 
   } catch (err) {
+
     console.error(err);
 
     el.status.innerHTML = `
@@ -199,6 +266,7 @@ async function handleValidationErrors(
   tableRows,
   validation
 ) {
+
   const workbookBuffer =
     await generateValidationWorkbook(
       tableRows,
@@ -216,7 +284,9 @@ async function handleValidationErrors(
     );
 
   const originalName =
-    getOriginalFileName(state.currentFile);
+    getOriginalFileName(
+      state.currentFile
+    );
 
   setDownloadLink(
     blob,
@@ -236,6 +306,7 @@ async function handleValidationErrors(
     </div>
 
     ${renderInvalidValues(validation.invalidValues)}
+
     ${renderInvalidMgrs(validation.invalidMgrs)}
   `;
 
@@ -246,14 +317,20 @@ function handleSuccessfulValidation(
   tableRows,
   validRows
 ) {
+
   const aggregated =
-    aggregateDuplicates(validRows);
+    aggregateDuplicates(
+      validRows
+    );
 
   const duplicatesMerged =
-    validRows.length - aggregated.length;
+    validRows.length -
+    aggregated.length;
 
   const conversion =
-    convertMgrsToDD(aggregated);
+    convertMgrsToDD(
+      aggregated
+    );
 
   const converted =
     conversion.converted;
@@ -261,27 +338,47 @@ function handleSuccessfulValidation(
   const failed =
     conversion.failed;
 
-  state.latestConvertedRows = converted;
+  state.latestConvertedRows =
+    converted;
 
   renderStatus({
-    totalRows: tableRows.length,
-    validRows: validRows.length,
-    uniqueRows: aggregated.length,
-    convertedRows: converted.length,
-    failedRows: failed.length,
+    totalRows:
+      tableRows.length,
+
+    validRows:
+      validRows.length,
+
+    uniqueRows:
+      aggregated.length,
+
+    convertedRows:
+      converted.length,
+
+    failedRows:
+      failed.length,
+
     duplicatesMerged,
+
     invalidValues: [],
+
     invalidMgrs: [],
+
     failed
   });
 
-  renderPreview(converted);
+  renderPreview(
+    converted
+  );
 
   const blob =
-    buildOutputFile(converted);
+    buildOutputFile(
+      converted
+    );
 
   const originalName =
-    getOriginalFileName(state.currentFile);
+    getOriginalFileName(
+      state.currentFile
+    );
 
   setDownloadLink(
     blob,
@@ -293,113 +390,9 @@ function handleSuccessfulValidation(
 }
 
 function getOriginalFileName(file) {
+
   return file.name.replace(
     /\.[^/.]+$/,
     ''
   );
-}
-
-function aggregateDuplicates(rows) {
-  const map = new Map();
-
-  for (const row of rows) {
-    if (map.has(row.mgrs)) {
-      const existing = map.get(row.mgrs);
-
-      map.set(
-        row.mgrs,
-        {
-          mgrs: row.mgrs,
-          originalMgrs: existing.originalMgrs,
-          weight: existing.weight + row.weight
-        }
-      );
-
-    } else {
-      map.set(
-        row.mgrs,
-        {
-          mgrs: row.mgrs,
-          originalMgrs: row.originalMgrs,
-          weight: row.weight
-        }
-      );
-    }
-  }
-
-  return Array.from(map.values());
-}
-
-function convertMgrsToDD(rows) {
-  const converted = [];
-  const failed = [];
-
-  for (const row of rows) {
-    try {
-      const point =
-        mgrs.toPoint(row.mgrs);
-
-      if (
-        !point ||
-        point.length !== 2
-      ) {
-        failed.push({
-          mgrs: row.mgrs,
-          reason: t('invalidCoordinateStructure')
-        });
-
-        continue;
-      }
-
-      const lon = point[0];
-      const lat = point[1];
-
-      if (
-        isNaN(lat) ||
-        isNaN(lon)
-      ) {
-        failed.push({
-          mgrs: row.mgrs,
-          reason: t('invalidCoordinateValues')
-        });
-
-        continue;
-      }
-
-      converted.push({
-        mgrs: row.mgrs,
-        originalMgrs: row.originalMgrs,
-        latitude: Number(lat.toFixed(6)),
-        longitude: Number(lon.toFixed(6)),
-        value: row.weight
-      });
-
-    } catch (err) {
-      failed.push({
-        mgrs: row.mgrs,
-        reason: getConversionErrorMessage(err)
-      });
-    }
-  }
-
-  return {
-    converted,
-    failed
-  };
-}
-
-function getConversionErrorMessage(err) {
-  if (err.message.includes('even number')) {
-    return t('mgrsWrongDigits');
-  }
-
-  if (err.message.includes('Invalid zone letter')) {
-    return t('mgrsInvalidZone');
-  }
-
-  if (err.message.includes('bad conversion')) {
-    return t('conversionError');
-  }
-
-  return t('unknownError');
 }

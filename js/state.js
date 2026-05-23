@@ -18,6 +18,13 @@ const el = {
   closeHelpBtn: document.getElementById('closeHelpBtn')
 };
 
+const storageKeys = {
+  theme: 'coordinatesAggregator.theme',
+  lang: 'coordinatesAggregator.lang',
+  basemap: 'coordinatesAggregator.basemap',
+  previewMode: 'coordinatesAggregator.previewMode'
+};
+
 const state = {
   currentFile: null,
   latestConvertedRows: [],
@@ -27,8 +34,8 @@ const state = {
   tileLayer: null,
   pointsLayer: null,
 
-  currentTheme: 'light',
-  currentLang: 'uk',
+  currentTheme: loadTheme(),
+  currentLang: loadLanguage(),
   currentStatus: 'ready',
 
   downloadType: null

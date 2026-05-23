@@ -9,6 +9,11 @@ function isHeaderRow(row) {
       .trim()
       .toLowerCase();
 
+  const thirdCell =
+    String(row[2] ?? '')
+      .trim()
+      .toLowerCase();
+
   return (
     firstCell === 'mgrs' ||
     firstCell === 'coordinate' ||
@@ -16,7 +21,9 @@ function isHeaderRow(row) {
     firstCell === 'координата' ||
     firstCell === 'координати' ||
     secondCell === 'value' ||
-    secondCell === 'вага'
+    secondCell === 'вага' ||
+    thirdCell === 'error' ||
+    thirdCell === 'помилка'
   );
 }
 
@@ -60,15 +67,11 @@ function normalizeMgrs(value) {
 }
 
 function validateAndNormalizeRows(rows) {
-
   const validRows = [];
-
   const invalidValues = [];
-
   const invalidMgrs = [];
 
   rows.forEach((row, index) => {
-
     const rowIndex = index + 1;
 
     if (index === 0 && isHeaderRow(row)) {
@@ -76,7 +79,6 @@ function validateAndNormalizeRows(rows) {
     }
 
     const mgrsValue = row[0];
-
     const weightValue = row[1];
 
     if (!mgrsValue) {
@@ -88,7 +90,6 @@ function validateAndNormalizeRows(rows) {
         .trim();
 
     if (rawWeight === '') {
-
       invalidValues.push({
         rowIndex,
         mgrs: mgrsValue,
@@ -100,7 +101,6 @@ function validateAndNormalizeRows(rows) {
     }
 
     if (!/^-?\d+$/.test(rawWeight)) {
-
       invalidValues.push({
         rowIndex,
         mgrs: mgrsValue,
@@ -117,7 +117,6 @@ function validateAndNormalizeRows(rows) {
     if (
       !/^\d{1,2}[C-HJ-NP-X][A-HJ-NP-Z]{2}\d{10}$/.test(normalizedMgrs)
     ) {
-
       invalidMgrs.push({
         rowIndex,
         mgrs: mgrsValue,
@@ -133,7 +132,6 @@ function validateAndNormalizeRows(rows) {
       originalMgrs: String(mgrsValue),
       weight: Number(rawWeight)
     });
-
   });
 
   return {
