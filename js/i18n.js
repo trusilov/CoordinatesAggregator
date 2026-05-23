@@ -4,23 +4,77 @@ const translations = {
     process: 'Обробити',
     clear: 'Очистити',
 
-    mapPreview: 'Попередній перегляд мапи',
+    mapPreview:
+      'Попередній перегляд мапи',
 
-    points: 'Крапки',
-    heatmap: 'Теплова мапа',
+    points:
+      'Крапки',
 
-    satellite: 'Сателіт',
-    darkMap: 'Темна',
+    heatmap:
+      'Теплова мапа',
 
-    downloadResult: 'Завантажити результат',
-    downloadConverted: 'Завантажити CSV',
-    downloadErrors: 'Завантажити файл з помилками',
+    satellite:
+      'Сателіт',
 
-    ready: '● READY',
-    processing: '● PROCESSING',
-    errorStatus: '● ERROR',
+    darkMap:
+      'Темна',
 
-    fileLoaded: 'Файл завантажено',
+    heatmapSettings:
+      'Налаштування Heatmap',
+
+    heatRadius:
+      'Радіус',
+
+    heatBlur:
+      'Розмиття',
+
+    heatOpacity:
+      'Прозорість',
+
+    heatIntensity:
+      'Інтенсивність',
+
+    heatGradient:
+      'Градієнт',
+
+    heatNormalize:
+      'Нормалізація',
+
+    heatDynamicRadius:
+      'Динамічний радіус',
+
+    pointsSettings:
+      'Налаштування крапок',
+
+    pointRadius:
+      'Розмір',
+
+    pointOpacity:
+      'Прозорість',
+
+    pointColor:
+      'Колір',
+
+    downloadResult:
+      'Завантажити результат',
+
+    downloadConverted:
+      'Завантажити CSV',
+
+    downloadErrors:
+      'Завантажити файл з помилками',
+
+    ready:
+      '● READY',
+
+    processing:
+      '● PROCESSING',
+
+    errorStatus:
+      '● ERROR',
+
+    fileLoaded:
+      'Файл завантажено',
 
     chooseFileFirst:
       'Спочатку вибери CSV або Excel файл',
@@ -40,23 +94,38 @@ const translations = {
     errorsFound:
       'Знайдено помилок',
 
-    done: 'Готово',
-    error: 'Помилка',
+    done:
+      'Готово',
 
-    totalRows: 'Зчитано рядків',
-    validRows: 'Валідних рядків',
-    uniqueRows: 'Унікальних координат',
+    error:
+      'Помилка',
 
-    convertedRows: 'Конвертовано',
-    failedRows: 'Не сконвертовано',
+    totalRows:
+      'Зчитано рядків',
 
-    invalidValues: 'Невалідні value',
-    invalidMgrs: 'Невалідні MGRS',
+    validRows:
+      'Валідних рядків',
+
+    uniqueRows:
+      'Унікальних координат',
+
+    convertedRows:
+      'Конвертовано',
+
+    failedRows:
+      'Не сконвертовано',
+
+    invalidValues:
+      'Невалідні value',
+
+    invalidMgrs:
+      'Невалідні MGRS',
 
     duplicatesMerged:
       'Дублікатів обʼєднано',
 
-    value: 'Value',
+    value:
+      'Value',
 
     normalized:
       'Нормалізовано',
@@ -100,8 +169,11 @@ const translations = {
     conversionError:
       'Помилка конвертації координати',
 
-    rowColumn: 'ROW',
-    errorColumn: 'ERROR',
+    rowColumn:
+      'ROW',
+
+    errorColumn:
+      'ERROR',
 
     helpTitle:
       'Як користуватись',
@@ -127,26 +199,83 @@ const translations = {
 
   en: {
 
-    process: 'Process',
-    clear: 'Clear',
+    process:
+      'Process',
 
-    mapPreview: 'Map preview',
+    clear:
+      'Clear',
 
-    points: 'Points',
-    heatmap: 'Heatmap',
+    mapPreview:
+      'Map preview',
 
-    satellite: 'Satellite',
-    darkMap: 'Dark',
+    points:
+      'Points',
 
-    downloadResult: 'Download result',
-    downloadConverted: 'Download CSV',
-    downloadErrors: 'Download file with errors',
+    heatmap:
+      'Heatmap',
 
-    ready: '● READY',
-    processing: '● PROCESSING',
-    errorStatus: '● ERROR',
+    satellite:
+      'Satellite',
 
-    fileLoaded: 'File loaded',
+    darkMap:
+      'Dark',
+
+    heatmapSettings:
+      'Heatmap settings',
+
+    heatRadius:
+      'Radius',
+
+    heatBlur:
+      'Blur',
+
+    heatOpacity:
+      'Opacity',
+
+    heatIntensity:
+      'Intensity',
+
+    heatGradient:
+      'Gradient',
+
+    heatNormalize:
+      'Normalize values',
+
+    heatDynamicRadius:
+      'Dynamic radius',
+
+    pointsSettings:
+      'Points settings',
+
+    pointRadius:
+      'Size',
+
+    pointOpacity:
+      'Opacity',
+
+    pointColor:
+      'Color',
+
+    downloadResult:
+      'Download result',
+
+    downloadConverted:
+      'Download CSV',
+
+    downloadErrors:
+      'Download file with errors',
+
+    ready:
+      '● READY',
+
+    processing:
+      '● PROCESSING',
+
+    errorStatus:
+      '● ERROR',
+
+    fileLoaded:
+      'File loaded',
 
     chooseFileFirst:
       'Choose CSV or Excel file first',
@@ -166,23 +295,38 @@ const translations = {
     errorsFound:
       'Errors found',
 
-    done: 'Done',
-    error: 'Error',
+    done:
+      'Done',
 
-    totalRows: 'Rows read',
-    validRows: 'Valid rows',
-    uniqueRows: 'Unique coordinates',
+    error:
+      'Error',
 
-    convertedRows: 'Converted',
-    failedRows: 'Not converted',
+    totalRows:
+      'Rows read',
 
-    invalidValues: 'Invalid values',
-    invalidMgrs: 'Invalid MGRS',
+    validRows:
+      'Valid rows',
+
+    uniqueRows:
+      'Unique coordinates',
+
+    convertedRows:
+      'Converted',
+
+    failedRows:
+      'Not converted',
+
+    invalidValues:
+      'Invalid values',
+
+    invalidMgrs:
+      'Invalid MGRS',
 
     duplicatesMerged:
       'Duplicates merged',
 
-    value: 'Value',
+    value:
+      'Value',
 
     normalized:
       'Normalized',
@@ -226,8 +370,11 @@ const translations = {
     conversionError:
       'Coordinate conversion error',
 
-    rowColumn: 'ROW',
-    errorColumn: 'ERROR',
+    rowColumn:
+      'ROW',
+
+    errorColumn:
+      'ERROR',
 
     helpTitle:
       'How to use',
@@ -253,5 +400,9 @@ const translations = {
 };
 
 function t(key) {
-  return translations[state.currentLang][key] || key;
+  return (
+    translations[
+      state.currentLang
+    ][key] || key
+  );
 }

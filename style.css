@@ -21,7 +21,6 @@
 }
 
 body {
-
   margin: 0;
   padding: 0;
 
@@ -31,7 +30,6 @@ body {
     sans-serif;
 
   background: var(--bg);
-
   color: var(--text);
 
   min-height: 100vh;
@@ -56,7 +54,6 @@ body:not(.light-theme) {
 }
 
 .app-header {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,14 +70,12 @@ body:not(.light-theme) {
 
 .header-left,
 .header-right {
-
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
 .header-icon {
-
   width: 40px;
   height: 40px;
 
@@ -88,20 +83,17 @@ body:not(.light-theme) {
 }
 
 .header-title-block {
-
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .header-title {
-
   font-size: 22px;
   font-weight: 700;
 }
 
 .header-version {
-
   font-size: 13px;
 
   color: var(--muted);
@@ -114,7 +106,6 @@ body:not(.light-theme) {
 }
 
 .github-link {
-
   text-decoration: none;
 
   color: white;
@@ -136,7 +127,6 @@ body:not(.light-theme) {
 }
 
 .header-btn {
-
   border: none;
 
   background: var(--panel);
@@ -159,18 +149,15 @@ body:not(.light-theme) {
 }
 
 .header-btn:hover {
-
   border-color: var(--accent);
 }
 
 .status-indicator {
-
   font-size: 14px;
   font-weight: 700;
 }
 
 .app-layout {
-
   display: grid;
 
   grid-template-columns:
@@ -183,7 +170,6 @@ body:not(.light-theme) {
 
 .left-panel,
 .right-panel {
-
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -192,7 +178,6 @@ body:not(.light-theme) {
 .map-card,
 .top-card,
 .status-card {
-
   background: var(--panel);
 
   border:
@@ -204,12 +189,10 @@ body:not(.light-theme) {
 }
 
 .map-card {
-
   overflow: hidden;
 }
 
 .map-header {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -221,20 +204,17 @@ body:not(.light-theme) {
 }
 
 .map-header h3 {
-
   margin: 0;
 
   font-size: 18px;
 }
 
 .map-controls {
-
   display: flex;
   gap: 10px;
 }
 
 .map-controls select {
-
   background: var(--panel);
 
   color: var(--text);
@@ -249,19 +229,82 @@ body:not(.light-theme) {
   cursor: pointer;
 }
 
-#map {
+/* HEATMAP SETTINGS */
 
+.heatmap-settings {
+  display: none;
+
+  padding: 16px 20px;
+
+  border-bottom:
+    1px solid var(--border);
+
+  background:
+    rgba(0,0,0,0.03);
+}
+
+.heatmap-settings.active {
+  display: block;
+}
+
+.heatmap-setting-title {
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--muted);
+
+  margin-bottom: 12px;
+}
+
+.heatmap-setting-row {
+  display: grid;
+
+  grid-template-columns:
+    90px 1fr 48px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.heatmap-setting-row:last-child {
+  margin-bottom: 0;
+}
+
+.heatmap-setting-row label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.heatmap-setting-row input[type="range"] {
+  width: 100%;
+
+  accent-color: var(--accent);
+
+  cursor: pointer;
+}
+
+.heatmap-setting-row span {
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--muted);
+
+  text-align: right;
+}
+
+#map {
   width: 100%;
   height: 670px;
 }
 
 .top-card {
-
   padding: 24px;
 }
 
 .title {
-
   display: flex;
   align-items: center;
   gap: 12px;
@@ -273,18 +316,15 @@ body:not(.light-theme) {
 }
 
 .title-icon {
-
   width: 42px;
   height: 42px;
 }
 
 .upload-box {
-
   margin-bottom: 20px;
 }
 
 #fileInput {
-
   width: 100%;
 
   background: var(--panel);
@@ -302,7 +342,6 @@ body:not(.light-theme) {
 }
 
 .action-buttons {
-
   display: flex;
   gap: 12px;
 
@@ -312,7 +351,6 @@ body:not(.light-theme) {
 #processBtn,
 #clearBtn,
 #downloadLink {
-
   flex: 1;
 
   border: none;
@@ -333,18 +371,15 @@ body:not(.light-theme) {
 }
 
 #processBtn {
-
   background: var(--accent);
   color: white;
 }
 
 #processBtn:hover {
-
   opacity: 0.92;
 }
 
 #clearBtn {
-
   background: transparent;
 
   color: var(--text);
@@ -354,12 +389,10 @@ body:not(.light-theme) {
 }
 
 #clearBtn:hover {
-
   border-color: var(--accent);
 }
 
 #downloadLink {
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -368,32 +401,26 @@ body:not(.light-theme) {
 }
 
 .download-success {
-
   background: #1f9d55 !important;
 }
 
 .download-success:hover {
-
   background: #188046 !important;
 }
 
 .download-error {
-
   background: #d64545 !important;
 }
 
 .download-error:hover {
-
   background: #b63636 !important;
 }
 
 .status-card {
-
   padding: 20px;
 }
 
 .status-card h3 {
-
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -411,7 +438,6 @@ body:not(.light-theme) {
 }
 
 .status-grid {
-
   display: grid;
 
   grid-template-columns:
@@ -421,7 +447,6 @@ body:not(.light-theme) {
 }
 
 .status-item {
-
   background:
     rgba(0,0,0,0.04);
 
@@ -431,7 +456,6 @@ body:not(.light-theme) {
 }
 
 .status-label {
-
   font-size: 13px;
 
   color: var(--muted);
@@ -440,13 +464,11 @@ body:not(.light-theme) {
 }
 
 .status-value {
-
   font-size: 22px;
   font-weight: 700;
 }
 
 .error-list {
-
   display: flex;
   flex-direction: column;
 
@@ -454,7 +476,6 @@ body:not(.light-theme) {
 }
 
 .error-row {
-
   background:
     rgba(0,0,0,0.04);
 
@@ -464,7 +485,6 @@ body:not(.light-theme) {
 }
 
 .error-coord {
-
   font-family: monospace;
 
   font-size: 14px;
@@ -474,7 +494,6 @@ body:not(.light-theme) {
 }
 
 .error-reason {
-
   color: var(--error);
 
   margin-top: 6px;
@@ -485,7 +504,6 @@ body:not(.light-theme) {
 /* MODAL */
 
 .modal-overlay {
-
   position: fixed;
 
   inset: 0;
@@ -504,12 +522,10 @@ body:not(.light-theme) {
 }
 
 .modal-overlay.active {
-
   display: flex;
 }
 
 .modal-window {
-
   width: 100%;
   max-width: 700px;
 
@@ -526,7 +542,6 @@ body:not(.light-theme) {
 }
 
 .modal-header {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -538,14 +553,12 @@ body:not(.light-theme) {
 }
 
 .modal-header h2 {
-
   margin: 0;
 
   font-size: 24px;
 }
 
 .modal-close-btn {
-
   border: none;
 
   background: transparent;
@@ -558,12 +571,10 @@ body:not(.light-theme) {
 }
 
 .modal-content {
-
   padding: 24px;
 }
 
 .help-list {
-
   margin: 0;
   padding-left: 22px;
 
@@ -574,19 +585,16 @@ body:not(.light-theme) {
 }
 
 .help-list li {
-
   line-height: 1.5;
 }
 
 @media (max-width: 1200px) {
 
   .app-layout {
-
     grid-template-columns: 1fr;
   }
 
   #map {
-
     height: 500px;
   }
 }
@@ -594,7 +602,6 @@ body:not(.light-theme) {
 @media (max-width: 700px) {
 
   .app-header {
-
     flex-direction: column;
     gap: 16px;
 
@@ -602,14 +609,12 @@ body:not(.light-theme) {
   }
 
   .header-right {
-
     width: 100%;
 
     justify-content: space-between;
   }
 
   .map-header {
-
     flex-direction: column;
     align-items: flex-start;
 
@@ -617,29 +622,33 @@ body:not(.light-theme) {
   }
 
   .map-controls {
-
     width: 100%;
 
     flex-direction: column;
   }
 
   .map-controls select {
-
     width: 100%;
   }
 
-  .action-buttons {
+  .heatmap-setting-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 
+  .heatmap-setting-row span {
+    text-align: left;
+  }
+
+  .action-buttons {
     flex-direction: column;
   }
 
   .status-grid {
-
     grid-template-columns: 1fr;
   }
 
   .modal-window {
-
     max-height: 90vh;
     overflow-y: auto;
   }

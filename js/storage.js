@@ -1,4 +1,5 @@
 function loadSetting(key, fallback) {
+
   const value =
     localStorage.getItem(key);
 
@@ -14,6 +15,7 @@ function loadSetting(key, fallback) {
 }
 
 function saveSetting(key, value) {
+
   localStorage.setItem(
     key,
     value
@@ -21,6 +23,7 @@ function saveSetting(key, value) {
 }
 
 function loadTheme() {
+
   return loadSetting(
     storageKeys.theme,
     'light'
@@ -28,6 +31,7 @@ function loadTheme() {
 }
 
 function saveTheme(value) {
+
   saveSetting(
     storageKeys.theme,
     value
@@ -35,6 +39,7 @@ function saveTheme(value) {
 }
 
 function loadLanguage() {
+
   return loadSetting(
     storageKeys.lang,
     'uk'
@@ -42,6 +47,7 @@ function loadLanguage() {
 }
 
 function saveLanguage(value) {
+
   saveSetting(
     storageKeys.lang,
     value
@@ -49,6 +55,7 @@ function saveLanguage(value) {
 }
 
 function loadBasemap() {
+
   return loadSetting(
     storageKeys.basemap,
     'satellite'
@@ -56,6 +63,7 @@ function loadBasemap() {
 }
 
 function saveBasemap(value) {
+
   saveSetting(
     storageKeys.basemap,
     value
@@ -63,6 +71,7 @@ function saveBasemap(value) {
 }
 
 function loadPreviewMode() {
+
   return loadSetting(
     storageKeys.previewMode,
     'points'
@@ -70,8 +79,89 @@ function loadPreviewMode() {
 }
 
 function savePreviewMode(value) {
+
   saveSetting(
     storageKeys.previewMode,
+    value
+  );
+}
+
+function saveHeatRadius(value) {
+
+  saveSetting(
+    storageKeys.heatRadius,
+    value
+  );
+}
+
+function saveHeatBlur(value) {
+
+  saveSetting(
+    storageKeys.heatBlur,
+    value
+  );
+}
+
+function saveHeatOpacity(value) {
+
+  saveSetting(
+    storageKeys.heatOpacity,
+    value
+  );
+}
+
+function saveHeatIntensity(value) {
+
+  saveSetting(
+    storageKeys.heatIntensity,
+    value
+  );
+}
+
+function saveHeatGradient(value) {
+
+  saveSetting(
+    storageKeys.heatGradient,
+    value
+  );
+}
+
+function saveHeatNormalize(value) {
+
+  saveSetting(
+    storageKeys.heatNormalize,
+    value
+  );
+}
+
+function saveHeatDynamicRadius(value) {
+
+  saveSetting(
+    storageKeys.heatDynamicRadius,
+    value
+  );
+}
+
+function savePointRadius(value) {
+
+  saveSetting(
+    storageKeys.pointRadius,
+    value
+  );
+}
+
+function savePointOpacity(value) {
+
+  saveSetting(
+    storageKeys.pointOpacity,
+    value
+  );
+}
+
+function savePointColor(value) {
+
+  saveSetting(
+    storageKeys.pointColor,
     value
   );
 }

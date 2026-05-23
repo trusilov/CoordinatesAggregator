@@ -161,6 +161,269 @@
 
         </div>
 
+
+        <div
+          id="heatmapSettings"
+          class="heatmap-settings"
+        >
+
+          <div
+            class="heatmap-setting-title"
+            data-i18n="heatmapSettings"
+          >
+            Налаштування Heatmap
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="heatRadiusInput"
+              data-i18n="heatRadius"
+            >
+              Радіус
+            </label>
+
+            <input
+              type="range"
+              id="heatRadiusInput"
+              min="10"
+              max="80"
+              value="35"
+            >
+
+            <span id="heatRadiusValue">
+              35
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="heatBlurInput"
+              data-i18n="heatBlur"
+            >
+              Розмиття
+            </label>
+
+            <input
+              type="range"
+              id="heatBlurInput"
+              min="5"
+              max="60"
+              value="25"
+            >
+
+            <span id="heatBlurValue">
+              25
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="heatOpacityInput"
+              data-i18n="heatOpacity"
+            >
+              Прозорість
+            </label>
+
+            <input
+              type="range"
+              id="heatOpacityInput"
+              min="0.1"
+              max="1"
+              step="0.05"
+              value="0.65"
+            >
+
+            <span id="heatOpacityValue">
+              0.65
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="heatIntensityInput"
+              data-i18n="heatIntensity"
+            >
+              Інтенсивність
+            </label>
+
+            <input
+              type="range"
+              id="heatIntensityInput"
+              min="0.1"
+              max="5"
+              step="0.1"
+              value="1"
+            >
+
+            <span id="heatIntensityValue">
+              1
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="heatGradientSelect"
+              data-i18n="heatGradient"
+            >
+              Градієнт
+            </label>
+
+            <select id="heatGradientSelect">
+
+              <option value="classic">
+                Classic
+              </option>
+
+              <option value="inferno">
+                Inferno
+              </option>
+
+              <option value="blueRed">
+                Blue → Red
+              </option>
+
+              <option value="greenRed">
+                Green → Yellow → Red
+              </option>
+
+            </select>
+
+            <span></span>
+
+          </div>
+
+          <div class="heatmap-setting-row checkbox-row">
+
+            <label
+              for="heatNormalizeInput"
+              data-i18n="heatNormalize"
+            >
+              Нормалізація
+            </label>
+
+            <input
+              type="checkbox"
+              id="heatNormalizeInput"
+              checked
+            >
+
+            <span></span>
+
+          </div>
+
+          <div class="heatmap-setting-row checkbox-row">
+
+            <label
+              for="heatDynamicRadiusInput"
+              data-i18n="heatDynamicRadius"
+            >
+              Динамічний радіус
+            </label>
+
+            <input
+              type="checkbox"
+              id="heatDynamicRadiusInput"
+            >
+
+            <span></span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="pointsSettings"
+          class="heatmap-settings"
+        >
+
+          <div
+            class="heatmap-setting-title"
+            data-i18n="pointsSettings"
+          >
+            Налаштування крапок
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="pointRadiusInput"
+              data-i18n="pointRadius"
+            >
+              Розмір
+            </label>
+
+            <input
+              type="range"
+              id="pointRadiusInput"
+              min="2"
+              max="20"
+              value="5"
+            >
+
+            <span id="pointRadiusValue">
+              5
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="pointOpacityInput"
+              data-i18n="pointOpacity"
+            >
+              Прозорість
+            </label>
+
+            <input
+              type="range"
+              id="pointOpacityInput"
+              min="0.1"
+              max="1"
+              step="0.05"
+              value="0.7"
+            >
+
+            <span id="pointOpacityValue">
+              0.7
+            </span>
+
+          </div>
+
+          <div class="heatmap-setting-row">
+
+            <label
+              for="pointColorInput"
+              data-i18n="pointColor"
+            >
+              Колір
+            </label>
+
+            <input
+              type="color"
+              id="pointColorInput"
+              value="#4f8cff"
+            >
+
+            <span id="pointColorValue">
+              #4f8cff
+            </span>
+
+          </div>
+
+        </div>
+
+
         <div id="map"></div>
 
       </div>
@@ -228,8 +491,6 @@
 
   </div>
 
-
-  <!-- HELP MODAL -->
 
   <div
     id="helpModal"
@@ -301,17 +562,17 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
-<script src="js/storage.js"></script>
-<script src="js/state.js"></script>
-<script src="js/i18n.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/file.js"></script>
-<script src="js/validation.js"></script>
-<script src="js/export.js"></script>
-<script src="js/map.js"></script>
-<script src="js/conversion.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/file.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/conversion.js"></script>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>

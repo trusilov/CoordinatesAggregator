@@ -6,6 +6,9 @@ function initApp() {
   updateLanguageButton();
   applyTranslations();
   setReadyStatus();
+  syncHeatmapControls();
+  syncPointControls();
+  togglePreviewSettings();
   bindEvents();
 }
 
@@ -42,9 +45,7 @@ function bindEvents() {
     'click',
     (event) => {
 
-      if (
-        event.target === el.helpModal
-      ) {
+      if (event.target === el.helpModal) {
         closeHelpModal();
       }
     }
@@ -54,9 +55,7 @@ function bindEvents() {
     'keydown',
     (event) => {
 
-      if (
-        event.key === 'Escape'
-      ) {
+      if (event.key === 'Escape') {
         closeHelpModal();
       }
     }
@@ -109,15 +108,89 @@ function bindEvents() {
         el.previewModeSelect.value
       );
 
-      if (
-        state.latestConvertedRows.length > 0
-      ) {
+      togglePreviewSettings();
+
+      if (state.latestConvertedRows.length > 0) {
 
         renderPreview(
           state.latestConvertedRows
         );
       }
     }
+  );
+
+  el.heatRadiusInput.addEventListener(
+    'input',
+    updateHeatmapSettings
+  );
+
+  el.heatBlurInput.addEventListener(
+    'input',
+    updateHeatmapSettings
+  );
+
+  el.heatOpacityInput.addEventListener(
+    'input',
+    updateHeatmapSettings
+  );
+
+  el.heatIntensityInput.addEventListener(
+    'input',
+    updateHeatmapSettings
+  );
+
+  el.heatGradientSelect.addEventListener(
+    'change',
+    updateHeatmapSettings
+  );
+
+  el.heatNormalizeInput.addEventListener(
+    'change',
+    updateHeatmapSettings
+  );
+
+  el.heatDynamicRadiusInput.addEventListener(
+    'change',
+    updateHeatmapSettings
+  );
+
+  el.pointRadiusInput.addEventListener(
+    'input',
+    updatePointSettings
+  );
+
+  el.pointOpacityInput.addEventListener(
+    'input',
+    updatePointSettings
+  );
+
+  el.pointColorInput.addEventListener(
+    'input',
+    updatePointSettings
+  );
+}
+
+function togglePreviewSettings() {
+
+  if (el.previewModeSelect.value === 'heatmap') {
+
+    el.heatmapSettings.classList.add(
+      'active'
+    );
+
+    el.pointsSettings.classList.remove(
+      'active'
+    );
+
+    return;
+  }
+
+  el.heatmapSettings.classList.remove(
+    'active'
+  );
+
+  el.pointsSettings.classList.add(
+    'active'
   );
 }
 
