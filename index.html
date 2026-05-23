@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -8,9 +9,14 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>MGRS CSV Aggregator</title>
+  <title>
+    MGRS CSV Aggregator
+  </title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
   <link
     rel="icon"
@@ -22,6 +28,7 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   >
+
 </head>
 
 <body>
@@ -59,6 +66,14 @@
     </div>
 
     <div class="header-right">
+
+      <button
+        id="helpBtn"
+        class="header-btn"
+        title="Help"
+      >
+        ❓
+      </button>
 
       <button
         id="langToggleBtn"
@@ -214,6 +229,70 @@
   </div>
 
 
+  <!-- HELP MODAL -->
+
+  <div
+    id="helpModal"
+    class="modal-overlay"
+  >
+
+    <div class="modal-window">
+
+      <div class="modal-header">
+
+        <h2 data-i18n="helpTitle">
+          Як користуватись
+        </h2>
+
+        <button
+          id="closeHelpBtn"
+          class="modal-close-btn"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div
+        class="modal-content"
+        id="helpContent"
+      >
+
+        <ol class="help-list">
+
+          <li data-i18n="helpStep1">
+            Завантаж CSV або Excel файл із MGRS координатами та value.
+          </li>
+
+          <li data-i18n="helpStep2">
+            Натисни кнопку "Обробити".
+          </li>
+
+          <li data-i18n="helpStep3">
+            Якщо знайдено помилки — буде згенеровано Excel файл із підсвіченими рядками.
+          </li>
+
+          <li data-i18n="helpStep4">
+            Виправ помилки та завантаж файл повторно.
+          </li>
+
+          <li data-i18n="helpStep5">
+            При успішній обробці буде згенеровано CSV файл у форматі latitude,longitude,value.
+          </li>
+
+          <li data-i18n="helpStep6">
+            На мапі доступний preview у режимі точок або heatmap.
+          </li>
+
+        </ol>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
   <script src="libs/papaparse.min.js"></script>
   <script src="libs/xlsx.full.min.js"></script>
   <script src="libs/mgrs.min.js"></script>
@@ -229,6 +308,7 @@
   <script src="js/validation.js"></script>
   <script src="js/export.js"></script>
   <script src="js/map.js"></script>
+
   <script src="app.js"></script>
 
 </body>

@@ -65,6 +65,14 @@ function toggleTheme() {
   applyTheme();
 }
 
+function openHelpModal() {
+  el.helpModal.classList.add('active');
+}
+
+function closeHelpModal() {
+  el.helpModal.classList.remove('active');
+}
+
 function setDownloadLink(blob, filename, type) {
   const url = URL.createObjectURL(blob);
 

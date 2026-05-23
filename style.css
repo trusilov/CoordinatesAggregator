@@ -482,6 +482,102 @@ body:not(.light-theme) {
   font-size: 14px;
 }
 
+/* MODAL */
+
+.modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.55);
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+}
+
+.modal-overlay.active {
+
+  display: flex;
+}
+
+.modal-window {
+
+  width: 100%;
+  max-width: 700px;
+
+  background: var(--panel);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 20px;
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+.modal-header {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 24px;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.modal-header h2 {
+
+  margin: 0;
+
+  font-size: 24px;
+}
+
+.modal-close-btn {
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  font-size: 22px;
+}
+
+.modal-content {
+
+  padding: 24px;
+}
+
+.help-list {
+
+  margin: 0;
+  padding-left: 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.help-list li {
+
+  line-height: 1.5;
+}
+
 @media (max-width: 1200px) {
 
   .app-layout {
@@ -540,5 +636,11 @@ body:not(.light-theme) {
   .status-grid {
 
     grid-template-columns: 1fr;
+  }
+
+  .modal-window {
+
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }

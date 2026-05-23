@@ -11,7 +11,11 @@ const el = {
 
   themeToggleBtn: document.getElementById('themeToggleBtn'),
   langToggleBtn: document.getElementById('langToggleBtn'),
-  statusIndicator: document.getElementById('statusIndicator')
+  statusIndicator: document.getElementById('statusIndicator'),
+
+  helpBtn: document.getElementById('helpBtn'),
+  helpModal: document.getElementById('helpModal'),
+  closeHelpBtn: document.getElementById('closeHelpBtn')
 };
 
 const state = {

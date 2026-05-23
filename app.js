@@ -8,6 +8,34 @@ function initApp() {
 }
 
 function bindEvents() {
+  el.helpBtn.addEventListener(
+    'click',
+    openHelpModal
+  );
+
+  el.closeHelpBtn.addEventListener(
+    'click',
+    closeHelpModal
+  );
+
+  el.helpModal.addEventListener(
+    'click',
+    (event) => {
+      if (event.target === el.helpModal) {
+        closeHelpModal();
+      }
+    }
+  );
+
+  document.addEventListener(
+    'keydown',
+    (event) => {
+      if (event.key === 'Escape') {
+        closeHelpModal();
+      }
+    }
+  );
+
   el.langToggleBtn.addEventListener(
     'click',
     toggleLanguage
